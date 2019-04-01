@@ -9,7 +9,7 @@ void loop() {
     SendSignal(1);
 }
 
-//Send "387" using either Sony Protocal is x is 1 or RC5 if x is 2.rc5 
+//Send "387" using either Sony Protocal is x is 1 or RC5 if x is 2
 void SendSignal(int x){
   if (x==1) {
     irsend.sendSony(0xFF7A85, 20);
