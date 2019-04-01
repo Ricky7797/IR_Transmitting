@@ -1,0 +1,30 @@
+#include <IRremote.h>
+
+IRsend irsend;
+
+void setup() {
+}
+
+void loop() {
+    SendSignal(1);
+}
+
+//Send "387" using either Sony Protocal is x is 1 or RC5 if x is 2.rc5 
+void SendSignal(int x){
+  if (x==1) {
+    irsend.sendSony(0xFF7A85, 20);
+    delay(100);
+    irsend.sendSony(0xFF4AB5, 20);
+    delay(100);
+    irsend.sendSony(0xFF42BD, 20);
+    delay(300000);
+ }
+ else if (x==2) {
+    irsend.sendRC5(0xFF7A85, 14);
+    delay(100);
+    irsend.sendRC5(0xFF4AB5, 14);
+    delay(100);
+    irsend.sendRC5(0xFF42BD, 14);
+    delay(300000);
+ }
+}
